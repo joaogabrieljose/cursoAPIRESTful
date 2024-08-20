@@ -1,24 +1,16 @@
-package pt.com.api.curso.domain.entity;
+package pt.com.api.curso.response;
 
-import jakarta.persistence.*;
-import pt.com.api.curso.response.AlunoRepository;
+public class CursoRepository {
+    public long id;
+    public String name;
+    public String descricao;
+    public int nivel;
 
-@Entity
-public class Curso {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String name;
-    private String descricao;
-    private int nivel;
+    public AlunoRepository aluno;
 
-    @ManyToOne
-    @JoinColumn(name = "aluno_id")
-    private Aluno aluno;
+    public CursoRepository(){}
 
-    public Curso(){}
-
-    public Curso(long id, String name, String descricao, int nivel, Aluno aluno) {
+    public CursoRepository(long id, String name, String descricao, int nivel, AlunoRepository aluno) {
         this.id = id;
         this.name = name;
         this.descricao = descricao;
@@ -62,7 +54,7 @@ public class Curso {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
+    public void setAluno(AlunoRepository aluno) {
         this.aluno = aluno;
     }
 }
