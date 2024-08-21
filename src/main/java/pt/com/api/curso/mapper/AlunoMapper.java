@@ -2,7 +2,7 @@ package pt.com.api.curso.mapper;
 
 import pt.com.api.curso.domain.entity.Aluno;
 import pt.com.api.curso.request.AlunoRequest;
-import pt.com.api.curso.response.AlunoRepository;
+import pt.com.api.curso.response.AlunoResponse;
 
 public class AlunoMapper {
     public static Aluno toAluno(AlunoRequest request){
@@ -17,12 +17,11 @@ public class AlunoMapper {
         }
         return aluno;
     }
-    public static AlunoRepository toAlunoRepositori(Aluno aluno){
-        AlunoRepository repository = new AlunoRepository();
+    public static AlunoResponse toAlunoRepositori(Aluno aluno){
+        AlunoResponse repository = new AlunoResponse();
         repository.setId(aluno.getId());
         repository.setName(aluno.getName());
         repository.setApelido(aluno.getApelido());
-        repository.setCodigoPostal(aluno.getCodigoPostal());
         repository.setCodigoPostal(aluno.getCodigoPostal());
         repository.setEmail(aluno.getEmail());
         if (aluno.getCurso()!= null){

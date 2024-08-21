@@ -2,7 +2,7 @@ package pt.com.api.curso.mapper;
 
 import pt.com.api.curso.domain.entity.Curso;
 import pt.com.api.curso.request.CursoRequest;
-import pt.com.api.curso.response.CursoRepository;
+import pt.com.api.curso.response.CursoResponse;
 
 public class CursoMapper {
 
@@ -21,8 +21,8 @@ public class CursoMapper {
     }
 
     // Maps Curso entity to CursoResponse
-    public static CursoRepository toCursoResponse(Curso curso) {
-        CursoRepository response = new CursoRepository();
+    public static CursoResponse toCursoResponse(Curso curso) {
+        CursoResponse response = new CursoResponse();
         response.setId(curso.getId());
         response.setName(curso.getName());
         response.setDescricao(curso.getDescricao());

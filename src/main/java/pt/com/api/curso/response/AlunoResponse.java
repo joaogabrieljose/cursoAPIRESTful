@@ -4,7 +4,7 @@ import pt.com.api.curso.domain.entity.Curso;
 
 import java.util.List;
 
-public class AlunoRepository {
+public class AlunoResponse {
 
     public long id;
     public String name;
@@ -13,8 +13,8 @@ public class AlunoRepository {
     public String email;
     public List<Curso> curso;
 
-    public AlunoRepository(){}
-    public AlunoRepository(long id, String name, String apelido, int codigoPostal, String email, List<Curso> curso) {
+    public AlunoResponse(){}
+    public AlunoResponse(long id, String name, String apelido, int codigoPostal, String email, List<Curso> curso) {
         this.id = id;
         this.name = name;
         this.apelido = apelido;

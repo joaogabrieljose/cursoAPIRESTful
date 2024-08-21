@@ -8,7 +8,7 @@ import pt.com.api.curso.domain.entity.Aluno;
 import pt.com.api.curso.domain.service.AlunoService;
 import pt.com.api.curso.mapper.AlunoMapper;
 import pt.com.api.curso.request.AlunoRequest;
-import pt.com.api.curso.response.AlunoRepository;
+import pt.com.api.curso.response.AlunoResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,10 +22,10 @@ public class AlunoController {
     private AlunoService service;
 
     @PostMapping("/aluno/")
-    public ResponseEntity<AlunoRepository> saveAluno(@RequestBody AlunoRequest request){
+    public ResponseEntity<AlunoResponse> saveAluno(@RequestBody AlunoRequest request){
             var novoSalva = AlunoMapper.toAluno(request);
             var alunoSave = service.save(novoSalva);
-            AlunoRepository repository = AlunoMapper.toAlunoRepositori(alunoSave);
+            AlunoResponse repository = AlunoMapper.toAlunoRepositori(alunoSave);
             return status(HttpStatus.CREATED).body(repository);
     }
 
@@ -33,29 +33,30 @@ public class AlunoController {
     public ResponseEntity<Object> update(@PathVariable  long id, @RequestBody AlunoRequest request) {
         var alunoUpdate = AlunoMapper.toAluno(request);
         var novoAluno = service.updateById(id, alunoUpdate);
-        AlunoRepository updateResponse = AlunoMapper.toAlunoRepositori(novoAluno);
+        AlunoResponse updateResponse = AlunoMapper.toAlunoRepositori(novoAluno);
         return ResponseEntity.status(HttpStatus.OK).body(updateResponse);
     }
 
     @GetMapping("/aluno/{id}")
-    public ResponseEntity<AlunoRepository> getById(@PathVariable long id){
+    public ResponseEntity<AlunoResponse> getById(@PathVariable long id){
         var novoAluno = service.getByd(id);
-        AlunoRepository alunoRepository = AlunoMapper.toAlunoRepositori(novoAluno);
+        AlunoResponse alunoRepository = AlunoMapper.toAlunoRepositori(novoAluno);
         return ResponseEntity.ok(alunoRepository);
     }
 
     @GetMapping("/aluno/")
-    public ResponseEntity<List<AlunoRepository>> findAllAluno() {
+    public ResponseEntity<List<AlunoResponse>> findAllAluno() {
         List<Aluno> findAllAluno = service.findAllAluno();
-        List<AlunoRepository> novoFindAll = findAllAluno.stream()
+        List<AlunoResponse> novoFindAll = findAllAluno.stream()
                 .map(AlunoMapper::toAlunoRepositori)
                 .collect(Collectors.toList());
         return ResponseEntity.status(HttpStatus.OK).body(novoFindAll);
     }
 
-    @DeleteMapping("aluno")
-    public ResponseEntity<AlunoRepository> deleteById(@PathVariable long id){
+    @DeleteMapping("/curso/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable long id) {
         service.deleteById(id);
-        return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

@@ -2,7 +2,7 @@ package pt.com.api.curso.response;
 
 import pt.com.api.curso.domain.entity.Aluno;
 
-public class CursoRepository {
+public class CursoResponse {
     public long id;
     public String name;
     public String descricao;
@@ -10,9 +10,9 @@ public class CursoRepository {
 
     public Aluno aluno;
 
-    public CursoRepository(){}
+    public CursoResponse(){}
 
-    public CursoRepository(long id, String name, String descricao, int nivel, Aluno aluno) {
+    public CursoResponse(long id, String name, String descricao, int nivel, Aluno aluno) {
         this.id = id;
         this.name = name;
         this.descricao = descricao;
