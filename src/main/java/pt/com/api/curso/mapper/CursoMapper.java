@@ -5,8 +5,11 @@ import pt.com.api.curso.request.CursoRequest;
 import pt.com.api.curso.response.CursoRepository;
 
 public class CursoMapper {
-    public static Curso toCurso(CursoRequest request){
+
+    // Maps CursoRequest to Curso entity
+    public static Curso toCurso(CursoRequest request) {
         Curso curso = new Curso();
+
         curso.setId(request.getId());
         curso.setName(request.getName());
         curso.setDescricao(request.getDescricao());
@@ -16,15 +19,17 @@ public class CursoMapper {
         }
         return curso;
     }
-    public static CursoRepository toCursoRepository( Curso curso){
-        CursoRepository repository = new CursoRepository();
-        repository.setId(curso.getId());
-        repository.setName(curso.getName());
-        repository.setDescricao(curso.getDescricao());
-        repository.setNivel(curso.getNivel());
-        if (curso.getAluno() != null){
-            repository.setAluno(curso.getAluno());
+
+    // Maps Curso entity to CursoResponse
+    public static CursoRepository toCursoResponse(Curso curso) {
+        CursoRepository response = new CursoRepository();
+        response.setId(curso.getId());
+        response.setName(curso.getName());
+        response.setDescricao(curso.getDescricao());
+        response.setNivel(curso.getNivel());
+        if (curso.getAluno() != null) {
+            response.setAluno(curso.getAluno());
         }
-        return  repository;
+        return response;
     }
 }

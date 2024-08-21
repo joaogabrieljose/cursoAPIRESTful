@@ -1,16 +1,18 @@
 package pt.com.api.curso.response;
 
+import pt.com.api.curso.domain.entity.Aluno;
+
 public class CursoRepository {
     public long id;
     public String name;
     public String descricao;
     public int nivel;
 
-    public AlunoRepository aluno;
+    public Aluno aluno;
 
     public CursoRepository(){}
 
-    public CursoRepository(long id, String name, String descricao, int nivel, AlunoRepository aluno) {
+    public CursoRepository(long id, String name, String descricao, int nivel, Aluno aluno) {
         this.id = id;
         this.name = name;
         this.descricao = descricao;
@@ -50,11 +52,11 @@ public class CursoRepository {
         this.nivel = nivel;
     }
 
-    public AlunoRepository getAluno() {
+    public Aluno getAluno() {
         return aluno;
     }
 
-    public void setAluno(AlunoRepository aluno) {
+    public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
 }

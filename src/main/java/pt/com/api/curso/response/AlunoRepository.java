@@ -1,5 +1,7 @@
 package pt.com.api.curso.response;
 
+import pt.com.api.curso.domain.entity.Curso;
+
 import java.util.List;
 
 public class AlunoRepository {
@@ -9,10 +11,10 @@ public class AlunoRepository {
     public String apelido;
     public int codigoPostal;
     public String email;
-    public List<CursoRepository> curso;
+    public List<Curso> curso;
 
     public AlunoRepository(){}
-    public AlunoRepository(long id, String name, String apelido, int codigoPostal, String email, List<CursoRepository> curso) {
+    public AlunoRepository(long id, String name, String apelido, int codigoPostal, String email, List<Curso> curso) {
         this.id = id;
         this.name = name;
         this.apelido = apelido;
@@ -61,11 +63,11 @@ public class AlunoRepository {
         this.email = email;
     }
 
-    public List<CursoRepository> getCurso() {
+    public List<Curso> getCurso() {
         return curso;
     }
 
-    public void setCurso(List<CursoRepository> curso) {
+    public void setCurso(List<Curso> curso) {
         this.curso = curso;
     }
 }
