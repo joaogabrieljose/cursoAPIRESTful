@@ -10,10 +10,10 @@ public class AlunoRequest {
     public String apelido;
     public int codigoPostal;
     public String email;
-    public List<CursoRequest> curso;
+    public List<Curso> curso;
     public AlunoRequest(){}
 
-    public AlunoRequest(long id, String name, String apelido, int codigoPostal, String email, List<CursoRequest> curso) {
+    public AlunoRequest(long id, String name, String apelido, int codigoPostal, String email, List<Curso> curso) {
         this.id = id;
         this.name = name;
         this.apelido = apelido;
@@ -66,7 +66,7 @@ public class AlunoRequest {
         return curso;
     }
 
-    public void setCurso(List<CursoRequest> curso) {
+    public void setCurso(List<Curso> curso) {
         this.curso = curso;
     }
 }

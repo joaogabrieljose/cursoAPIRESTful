@@ -1,7 +1,6 @@
 package pt.com.api.curso.domain.entity;
 
 import jakarta.persistence.*;
-import pt.com.api.curso.response.AlunoRepository;
 
 @Entity
 public class Curso {
@@ -58,7 +57,7 @@ public class Curso {
         this.nivel = nivel;
     }
 
-    public AlunoRepository getAluno() {
+    public Aluno getAluno() {
         return aluno;
     }
 
