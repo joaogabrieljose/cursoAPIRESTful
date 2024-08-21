@@ -8,11 +8,11 @@ public class CursoRequest {
     public String descricao;
     public int nivel;
 
-    public AlunoRequest aluno;
+    public Aluno aluno;
 
     public CursoRequest(){}
 
-    public CursoRequest(long id, String name, String descricao, int nivel, AlunoRequest aluno) {
+    public CursoRequest(long id, String name, String descricao, int nivel, Aluno aluno) {
         this.id = id;
         this.name = name;
         this.descricao = descricao;
@@ -56,7 +56,7 @@ public class CursoRequest {
         return aluno;
     }
 
-    public void setAluno(AlunoRequest aluno) {
+    public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
 }

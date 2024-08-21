@@ -4,6 +4,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import pt.com.api.curso.response.CursoRepository;
 
 import java.util.List;
 
@@ -69,7 +70,7 @@ public class Aluno {
         this.email = email;
     }
 
-    public List<Curso> getCurso() {
+    public List<CursoRepository> getCurso() {
         return curso;
     }
 
